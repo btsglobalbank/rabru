@@ -1,0 +1,1390 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rafael & Bruna — Ensaios Exclusivos</title>
+<link href="https://fonts.googleapis.com/css2?family=Italiana&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #0a0a0a;
+    --charcoal: #1a1a1a;
+    --dark-wine: #4a1528;
+    --wine: #7a2040;
+    --rose: #c4566a;
+    --blush: #e8a0ad;
+    --nude: #d4a88c;
+    --gold: #c9a96e;
+    --cream: #f5efe8;
+    --off-white: #faf8f5;
+    --text-light: #b8b0a8;
+    --text-dim: #706860;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Lora', serif;
+    background: var(--black);
+    color: var(--cream);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ──── NAV ──── */
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(10,10,10,0.95);
+    backdrop-filter: blur(12px);
+  }
+
+  .nav-logo {
+    font-family: 'Italiana', serif;
+    font-size: 1.1rem;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    color: var(--cream);
+  }
+
+  .nav-logo span { color: var(--rose); }
+
+  .nav-links {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--text-light);
+    text-decoration: none;
+    transition: color 0.3s;
+    font-weight: 400;
+  }
+
+  .nav-links a:hover { color: var(--rose); }
+
+  @media (max-width: 700px) {
+    .nav { padding: 15px 20px; }
+    .nav-links { gap: 15px; }
+    .nav-links a { font-size: 0.6rem; letter-spacing: 2px; }
+  }
+
+  /* ──── HERO ──── */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 80px 30px;
+    position: relative;
+    background: radial-gradient(ellipse at 50% 80%, rgba(122,32,64,0.15) 0%, transparent 70%),
+                var(--black);
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+
+  .hero-overline {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 8px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 30px;
+    font-weight: 400;
+  }
+
+  .hero h1 {
+    font-family: 'Italiana', serif;
+    font-size: clamp(3rem, 10vw, 7rem);
+    font-weight: 400;
+    line-height: 1.05;
+    letter-spacing: 3px;
+    color: var(--cream);
+  }
+
+  .hero h1 em {
+    font-family: 'Lora', serif;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--rose);
+    font-size: 0.6em;
+  }
+
+  .hero-sub {
+    font-family: 'Lora', serif;
+    font-style: italic;
+    font-size: 1.1rem;
+    color: var(--text-light);
+    margin-top: 25px;
+    font-weight: 400;
+    max-width: 500px;
+    line-height: 1.7;
+  }
+
+  .hero-cta {
+    margin-top: 50px;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .btn {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    padding: 16px 45px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    text-decoration: none;
+    font-weight: 500;
+    display: inline-block;
+  }
+
+  .btn-primary {
+    background: var(--wine);
+    color: var(--cream);
+  }
+  .btn-primary:hover {
+    background: var(--rose);
+  }
+
+  .btn-outline {
+    background: transparent;
+    color: var(--cream);
+    border: 1px solid rgba(255,255,255,0.15);
+  }
+  .btn-outline:hover {
+    border-color: var(--rose);
+    color: var(--rose);
+  }
+
+  .scroll-hint {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Jost', sans-serif;
+    font-size: 0.6rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    animation: bob 2s ease-in-out infinite;
+  }
+
+  @keyframes bob {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(8px); }
+  }
+
+  /* ──── MARQUEE ──── */
+  .marquee {
+    border-top: 1px solid rgba(255,255,255,0.05);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    padding: 14px 0;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  .marquee-track {
+    display: inline-block;
+    animation: marquee 30s linear infinite;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--text-dim);
+  }
+
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  .marquee-track span {
+    margin: 0 30px;
+    color: var(--rose);
+  }
+
+  /* ──── SECTION COMMON ──── */
+  .section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 100px 30px;
+  }
+
+  .section-label {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.6rem;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 15px;
+  }
+
+  .section-title {
+    font-family: 'Italiana', serif;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 400;
+    letter-spacing: 2px;
+    line-height: 1.2;
+    margin-bottom: 15px;
+  }
+
+  .section-desc {
+    font-style: italic;
+    color: var(--text-light);
+    font-size: 1rem;
+    line-height: 1.7;
+    max-width: 550px;
+  }
+
+  /* ──── GALLERY ──── */
+  .gallery-section {
+    background: var(--charcoal);
+    padding: 80px 0;
+  }
+
+  .gallery-header {
+    text-align: center;
+    margin-bottom: 50px;
+    padding: 0 30px;
+  }
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto auto;
+    gap: 4px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 4px;
+  }
+
+  .gallery-item {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    aspect-ratio: 3/4;
+    background: var(--dark-wine);
+  }
+
+  .gallery-item:nth-child(2) { aspect-ratio: 3/4; }
+  .gallery-item:nth-child(5) { grid-column: span 2; aspect-ratio: 3/2; }
+
+  .gallery-item .placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    font-family: 'Jost', sans-serif;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--blush);
+    background: linear-gradient(135deg, rgba(74,21,40,0.8), rgba(10,10,10,0.6));
+    transition: all 0.5s ease;
+    position: relative;
+  }
+
+  .gallery-item .placeholder .blurred-silhouette {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 40%, rgba(196,86,106,0.35) 0%, rgba(74,21,40,0.5) 40%, rgba(10,10,10,0.7) 100%);
+    filter: blur(0px);
+  }
+
+  .gallery-item .placeholder .lock-overlay {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .lock-icon {
+    font-size: 1.8rem;
+    opacity: 0.7;
+  }
+
+  .lock-text {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.55rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--blush);
+    text-align: center;
+    line-height: 1.8;
+    opacity: 0.9;
+  }
+
+  .lock-btn {
+    margin-top: 5px;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.55rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 8px 20px;
+    border: 1px solid var(--rose);
+    background: rgba(122,32,64,0.4);
+    color: var(--blush);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+  }
+
+  .lock-btn:hover {
+    background: var(--wine);
+    color: white;
+  }
+
+  .gallery-item:hover .placeholder {
+    background: linear-gradient(135deg, rgba(122,32,64,0.9), rgba(10,10,10,0.4));
+    transform: scale(1.03);
+  }
+
+  .gallery-item .overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 20px 15px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.8));
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+
+  .gallery-item:hover .overlay { opacity: 1; }
+
+  .overlay-title {
+    font-family: 'Italiana', serif;
+    font-size: 1rem;
+    letter-spacing: 2px;
+  }
+
+  .overlay-sub {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.6rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--blush);
+    margin-top: 4px;
+  }
+
+  /* If user adds real images */
+  .gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+  }
+  .gallery-item:hover img {
+    transform: scale(1.05);
+  }
+
+  @media (max-width: 700px) {
+    .gallery-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .gallery-item:nth-child(5) { grid-column: span 2; }
+  }
+
+  /* ──── PACKAGES ──── */
+  .packages-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2px;
+    margin-top: 50px;
+  }
+
+  .pkg {
+    background: var(--charcoal);
+    padding: 45px 35px;
+    position: relative;
+    transition: all 0.4s ease;
+  }
+
+  .pkg:hover {
+    background: #222;
+  }
+
+  .pkg.highlight {
+    background: var(--dark-wine);
+  }
+
+  .pkg.highlight:hover {
+    background: #5a1a30;
+  }
+
+  .pkg-badge {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.55rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+    display: block;
+  }
+
+  .pkg h3 {
+    font-family: 'Italiana', serif;
+    font-size: 1.6rem;
+    font-weight: 400;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+  }
+
+  .pkg .price {
+    font-family: 'Jost', sans-serif;
+    font-size: 2.2rem;
+    font-weight: 300;
+    color: var(--rose);
+    margin: 20px 0;
+  }
+
+  .pkg .price small {
+    font-size: 0.7rem;
+    color: var(--text-dim);
+    letter-spacing: 1px;
+  }
+
+  .pkg-features {
+    list-style: none;
+    margin: 25px 0 30px;
+  }
+
+  .pkg-features li {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    font-style: italic;
+  }
+
+  .pkg-features li::before {
+    content: '— ';
+    color: var(--rose);
+  }
+
+  /* ──── ABOUT ──── */
+  .about {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+
+  .about-visual {
+    aspect-ratio: 3/4;
+    background: linear-gradient(135deg, var(--dark-wine), var(--charcoal));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--blush);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .about-visual img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .about-text blockquote {
+    font-size: 1.3rem;
+    font-style: italic;
+    line-height: 1.8;
+    color: var(--cream);
+    margin: 30px 0;
+    padding-left: 20px;
+    border-left: 2px solid var(--wine);
+  }
+
+  .about-text .sig {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--text-dim);
+  }
+
+  @media (max-width: 700px) {
+    .about { grid-template-columns: 1fr; gap: 30px; }
+  }
+
+  /* ──── TESTIMONIALS ──── */
+  .testimonials-section {
+    background: var(--charcoal);
+  }
+
+  .test-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2px;
+    margin-top: 50px;
+  }
+
+  .test-card {
+    background: var(--black);
+    padding: 40px 30px;
+  }
+
+  .test-card .stars {
+    color: var(--gold);
+    font-size: 0.7rem;
+    letter-spacing: 4px;
+    margin-bottom: 20px;
+  }
+
+  .test-card p {
+    font-style: italic;
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: var(--text-light);
+  }
+
+  .test-card .author {
+    margin-top: 20px;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--text-dim);
+  }
+
+  /* ──── FAQ ──── */
+  .faq-list {
+    margin-top: 50px;
+    max-width: 700px;
+  }
+
+  .faq-item {
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    padding: 25px 0;
+  }
+
+  .faq-q {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    color: var(--cream);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .faq-q::after {
+    content: '+';
+    font-size: 1.2rem;
+    color: var(--rose);
+    transition: transform 0.3s;
+  }
+
+  .faq-a {
+    font-style: italic;
+    color: var(--text-light);
+    font-size: 0.9rem;
+    line-height: 1.7;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    margin-top: 0;
+  }
+
+  .faq-item.open .faq-a {
+    max-height: 200px;
+    margin-top: 15px;
+  }
+
+  .faq-item.open .faq-q::after {
+    transform: rotate(45deg);
+  }
+
+  /* ──── CTA ──── */
+  .final-cta {
+    text-align: center;
+    padding: 120px 30px;
+    background: radial-gradient(ellipse at center, rgba(122,32,64,0.2) 0%, transparent 70%),
+                var(--black);
+  }
+
+  .final-cta h2 {
+    font-family: 'Italiana', serif;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 400;
+    letter-spacing: 3px;
+    margin-bottom: 15px;
+  }
+
+  .final-cta p {
+    font-style: italic;
+    color: var(--text-light);
+    margin-bottom: 40px;
+    font-size: 1.1rem;
+  }
+
+  /* ──── FOOTER ──── */
+  .footer {
+    border-top: 1px solid rgba(255,255,255,0.06);
+    padding: 40px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .footer-left {
+    font-family: 'Italiana', serif;
+    font-size: 0.9rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+  }
+
+  .footer-left span { color: var(--rose); }
+
+  .footer-right {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.6rem;
+    letter-spacing: 2px;
+    color: var(--text-dim);
+    text-transform: uppercase;
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 25px;
+    list-style: none;
+  }
+
+  .footer-links a {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.6rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+
+  .footer-links a:hover { color: var(--rose); }
+
+  /* ──── LOGIN MODAL ──── */
+  .modal-backdrop {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.85);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(8px);
+    animation: fadeIn 0.3s ease;
+  }
+
+  .modal-backdrop.active {
+    display: flex;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  .modal {
+    background: var(--charcoal);
+    border: 1px solid rgba(255,255,255,0.08);
+    width: 90%;
+    max-width: 420px;
+    padding: 45px 35px;
+    position: relative;
+    animation: slideUp 0.4s ease;
+  }
+
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .modal-close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: var(--text-dim);
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: color 0.3s;
+    line-height: 1;
+  }
+
+  .modal-close:hover { color: var(--cream); }
+
+  .modal-logo {
+    font-family: 'Italiana', serif;
+    font-size: 1.2rem;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 8px;
+    color: var(--cream);
+  }
+
+  .modal-logo span { color: var(--rose); }
+
+  .modal-subtitle {
+    text-align: center;
+    font-family: 'Lora', serif;
+    font-style: italic;
+    font-size: 0.85rem;
+    color: var(--text-dim);
+    margin-bottom: 35px;
+  }
+
+  .form-group {
+    margin-bottom: 18px;
+  }
+
+  .form-label {
+    display: block;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.6rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--text-light);
+    margin-bottom: 8px;
+  }
+
+  .form-input {
+    width: 100%;
+    padding: 14px 16px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: var(--cream);
+    font-family: 'Jost', sans-serif;
+    font-size: 0.85rem;
+    outline: none;
+    transition: border-color 0.3s;
+  }
+
+  .form-input:focus {
+    border-color: var(--rose);
+  }
+
+  .form-input::placeholder {
+    color: var(--text-dim);
+    font-style: italic;
+  }
+
+  .form-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    margin-top: 5px;
+  }
+
+  .form-check {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+  }
+
+  .form-check input[type="checkbox"] {
+    accent-color: var(--rose);
+    width: 14px;
+    height: 14px;
+  }
+
+  .form-check span {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.7rem;
+    color: var(--text-light);
+  }
+
+  .form-forgot {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.65rem;
+    color: var(--rose);
+    text-decoration: none;
+    letter-spacing: 0.5px;
+  }
+
+  .form-forgot:hover { text-decoration: underline; }
+
+  .btn-login {
+    width: 100%;
+    padding: 15px;
+    background: var(--wine);
+    color: var(--cream);
+    border: none;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.3s;
+    font-weight: 500;
+  }
+
+  .btn-login:hover { background: var(--rose); }
+
+  .modal-divider {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin: 25px 0;
+  }
+
+  .modal-divider::before, .modal-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: rgba(255,255,255,0.08);
+  }
+
+  .modal-divider span {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.6rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-dim);
+  }
+
+  .btn-google {
+    width: 100%;
+    padding: 13px;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.1);
+    color: var(--cream);
+    font-family: 'Jost', sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .btn-google:hover {
+    border-color: rgba(255,255,255,0.25);
+    background: rgba(255,255,255,0.03);
+  }
+
+  .btn-google svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .modal-footer-text {
+    text-align: center;
+    margin-top: 25px;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.7rem;
+    color: var(--text-dim);
+  }
+
+  .modal-footer-text a {
+    color: var(--rose);
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .modal-footer-text a:hover { text-decoration: underline; }
+
+  .modal-error {
+    display: none;
+    background: rgba(196,86,106,0.1);
+    border: 1px solid rgba(196,86,106,0.3);
+    padding: 12px 16px;
+    margin-bottom: 20px;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.75rem;
+    color: var(--rose);
+  }
+
+  /* ──── IMAGE INSTRUCTIONS (remove this in final) ──── */
+  .img-instructions {
+    background: #1a1a2e;
+    border: 1px dashed var(--gold);
+    padding: 25px;
+    margin: 20px auto;
+    max-width: 700px;
+    border-radius: 8px;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.8rem;
+    color: var(--gold);
+    line-height: 1.8;
+    display: none; /* HIDDEN BY DEFAULT - change to block to see instructions */
+  }
+
+  .img-instructions code {
+    background: rgba(201,169,110,0.15);
+    padding: 2px 8px;
+    border-radius: 3px;
+    font-size: 0.75rem;
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-logo">R<span>&</span>B Studio</div>
+  <ul class="nav-links">
+    <li><a href="#galeria">Galeria</a></li>
+    <li><a href="#pacotes">Pacotes</a></li>
+    <li><a href="#sobre">Sobre</a></li>
+    <li><a href="#contato">Contato</a></li>
+    <li><a href="#" id="navLogin" style="color: var(--rose);">Login</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-overline">Ensaios exclusivos para colecionadores</div>
+  <div style="width: 180px; height: 180px; border-radius: 50%; overflow: hidden; border: 3px solid rgba(196,86,106,0.4); margin-bottom: 25px; box-shadow: 0 0 40px rgba(122,32,64,0.3);">
+    <img src="casal-hero.png" alt="Rafael e Bruna" style="width:100%;height:100%;object-fit:cover;">
+  </div>
+  <h1>Rafael <em>&</em> Bruna</h1>
+  <p class="hero-sub">
+    Ensaios exclusivos do casal mais apaixonado que você conhece — agora em alta resolução para quem acredita no amor de verdade.
+  </p>
+  <div class="hero-cta">
+    <a href="#pacotes" class="btn btn-primary">Ver Pacotes</a>
+    <a href="#galeria" class="btn btn-outline">Explorar Galeria</a>
+  </div>
+  <div class="scroll-hint">↓ Role para descobrir</div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee">
+  <div class="marquee-track">
+    Amor em alta resolução <span>✦</span> Ensaios autorais <span>✦</span> Também no OnlyFans <span>✦</span> Coleção limitada <span>✦</span> Entrega digital imediata <span>✦</span> Exclusividade absoluta <span>✦</span> Amor em alta resolução <span>✦</span> Ensaios autorais <span>✦</span> Também no OnlyFans <span>✦</span> Coleção limitada <span>✦</span> Entrega digital imediata <span>✦</span> Exclusividade absoluta <span>✦</span> Amor em alta resolução <span>✦</span> Ensaios autorais <span>✦</span> Também no OnlyFans <span>✦</span> Coleção limitada <span>✦</span> Entrega digital imediata <span>✦</span> Exclusividade absoluta <span>✦</span>
+  </div>
+</div>
+
+<!-- GALLERY -->
+<section class="gallery-section" id="galeria">
+  <div class="gallery-header">
+    <div class="section-label">Portfólio</div>
+    <div class="section-title">Momentos Capturados</div>
+    <div class="section-desc" style="margin: 10px auto 0; text-align: center;">
+      Cada clique conta uma história. Cada olhar, um universo.
+    </div>
+  </div>
+
+  <div class="gallery-grid">
+    <div class="gallery-item">
+      <div class="placeholder" style="background: url('casal.png') center/cover;">
+        <div class="blurred-silhouette" style="backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);background:rgba(10,10,10,0.3);"></div>
+        <div class="lock-overlay">
+          <div class="lock-icon">🔒</div>
+          <div class="lock-text">Conteúdo exclusivo</div>
+          <a href="#pacotes" class="lock-btn">Assine para ver</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="gallery-item">
+      <div class="placeholder" style="background: url('casal.png') 30% 20%/cover;">
+        <div class="blurred-silhouette" style="backdrop-filter:blur(22px) saturate(1.3);-webkit-backdrop-filter:blur(22px) saturate(1.3);background:rgba(74,21,40,0.2);"></div>
+        <div class="lock-overlay">
+          <div class="lock-icon">🔒</div>
+          <div class="lock-text">Ensaio "Golden Hour"</div>
+          <a href="#pacotes" class="lock-btn">Desbloquear</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="gallery-item">
+      <div class="placeholder" style="background: url('casal.png') 70% center/cover;">
+        <div class="blurred-silhouette" style="backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);background:rgba(10,10,10,0.25);"></div>
+        <div class="lock-overlay">
+          <div class="lock-icon">🔒</div>
+          <div class="lock-text">Conteúdo exclusivo</div>
+          <a href="#pacotes" class="lock-btn">Assine para ver</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="gallery-item">
+      <div class="placeholder" style="background: url('casal.png') center 30%/cover;">
+        <div class="blurred-silhouette" style="backdrop-filter:blur(20px) brightness(0.7);-webkit-backdrop-filter:blur(20px) brightness(0.7);background:rgba(26,26,26,0.2);"></div>
+        <div class="lock-overlay">
+          <div class="lock-icon">🔒</div>
+          <div class="lock-text">Ensaio "Noturno"</div>
+          <a href="#pacotes" class="lock-btn">Desbloquear</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="gallery-item">
+      <div class="placeholder" style="background: url('casal.png') center/cover;">
+        <div class="blurred-silhouette" style="backdrop-filter:blur(16px) saturate(1.5);-webkit-backdrop-filter:blur(16px) saturate(1.5);background:rgba(196,86,106,0.1);"></div>
+        <div class="lock-overlay">
+          <div class="lock-icon">🔒</div>
+          <div class="lock-text">Coleção "Intimidade" — 12 fotos</div>
+          <a href="#pacotes" class="lock-btn">Assinar para acessar</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="gallery-item">
+      <div class="placeholder" style="background: url('casal.png') 50% 60%/cover;">
+        <div class="blurred-silhouette" style="backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);background:rgba(10,10,10,0.3);"></div>
+        <div class="lock-overlay">
+          <div class="lock-icon">🔒</div>
+          <div class="lock-text">Conteúdo exclusivo</div>
+          <a href="#pacotes" class="lock-btn">Assine para ver</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PACKAGES -->
+<section class="section" id="pacotes">
+  <div class="section-label">Exclusivo</div>
+  <div class="section-title">Escolha Sua Experiência</div>
+  <div class="section-desc">Acesso exclusivo aos ensaios mais íntimos do casal que transformou seu casamento em arte.</div>
+
+  <div class="packages-grid">
+    <div class="pkg">
+      <span class="pkg-badge">Essencial</span>
+      <h3>Suspiro</h3>
+      <div class="price">R$ 29<small>,90 /mês</small></div>
+      <ul class="pkg-features">
+        <li>5 fotos exclusivas por mês</li>
+        <li>Resolução padrão</li>
+        <li>Acesso à galeria básica</li>
+        <li>Newsletter semanal do casal</li>
+      </ul>
+      <a href="#contato" class="btn btn-outline">Assinar</a>
+    </div>
+
+    <div class="pkg highlight">
+      <span class="pkg-badge">Mais Popular</span>
+      <h3>Intimidade</h3>
+      <div class="price">R$ 79<small>,90 /mês</small></div>
+      <ul class="pkg-features">
+        <li>20 fotos exclusivas por mês</li>
+        <li>Ensaios temáticos completos</li>
+        <li>Alta resolução sem marca d'água</li>
+        <li>Áudios exclusivos do casal</li>
+        <li>Grupo VIP no Telegram</li>
+      </ul>
+      <a href="#contato" class="btn btn-primary">Assinar</a>
+    </div>
+
+    <div class="pkg">
+      <span class="pkg-badge">Premium</span>
+      <h3>Eternidade</h3>
+      <div class="price">R$ 149<small>,90 /mês</small></div>
+      <ul class="pkg-features">
+        <li>Acesso ilimitado a todo conteúdo</li>
+        <li>Vídeos dos bastidores</li>
+        <li>Pôster A2 impresso mensal</li>
+        <li>Rafael recita uma poesia pra você</li>
+        <li>Sorteio mensal: jantar com o casal</li>
+      </ul>
+      <a href="#contato" class="btn btn-outline">Assinar</a>
+    </div>
+  </div>
+</section>
+
+<!-- ONLYFANS BANNER -->
+<div style="border-top: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05); padding: 35px 30px; text-align: center; background: linear-gradient(135deg, rgba(0,159,227,0.08) 0%, rgba(74,21,40,0.1) 100%);">
+  <div style="font-family: 'Jost', sans-serif; font-size: 0.6rem; letter-spacing: 5px; text-transform: uppercase; color: var(--text-dim); margin-bottom: 12px;">Também disponível no</div>
+  <div style="font-family: 'Italiana', serif; font-size: 1.6rem; letter-spacing: 4px; color: #00aeef;">OnlyFans</div>
+  <div style="font-family: 'Lora', serif; font-style: italic; font-size: 0.9rem; color: var(--text-light); margin-top: 10px;">Conteúdo ainda mais exclusivo para assinantes premium</div>
+  <a href="https://onlyfans.com" target="_blank" class="btn btn-outline" style="margin-top: 20px; border-color: #00aeef; color: #00aeef;">Acessar Perfil</a>
+</div>
+
+<!-- ABOUT -->
+<section class="section" id="sobre">
+  <div class="about">
+    <div class="about-visual" style="position:relative;">
+      <img src="casal.png" alt="Rafael e Bruna" style="width:100%;height:100%;object-fit:cover;filter:blur(6px);transform:scale(1.05);">
+    </div>
+    <div class="about-text">
+      <div class="section-label">Nossa História</div>
+      <div class="section-title">Quem Somos</div>
+      <blockquote>
+        "Desde que casamos, a gente ouve que nosso amor inspira as pessoas. Eram tantos pedidos por fotos e registros que decidimos transformar isso num projeto de verdade."
+      </blockquote>
+      <p class="section-desc">
+        Rafael e Bruna são casados e decidiram compartilhar seus ensaios com o mundo. 
+        Cada sessão é uma celebração da vida a dois — do carinho no dia a dia 
+        aos momentos mais íntimos que só quem ama de verdade conhece.
+      </p>
+      <br>
+      <div class="sig">Rafael — Diretor Criativo & Marido</div>
+      <div class="sig" style="margin-top:5px;">Bruna — Musa & Esposa</div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials-section" id="depoimentos">
+  <div class="section" style="padding-bottom: 0;">
+    <div class="section-label">Depoimentos</div>
+    <div class="section-title">O Que Dizem Nossos Assinantes</div>
+  </div>
+
+  <div class="section">
+    <div class="test-grid">
+      <div class="test-card">
+        <div class="stars">★ ★ ★ ★ ★</div>
+        <p>Comprei o pacote Suspiro pra dar de presente pro meu marido, pra mostrar que existem casais que ainda se dedicam um ao outro assim. As fotos são muito bem produzidas, vale demais.</p>
+        <div class="author">Juliana A. — São Paulo, SP</div>
+      </div>
+
+      <div class="test-card">
+        <div class="stars">★ ★ ★ ★ ☆</div>
+        <p>No começo achei meio estranho pagar pra ver foto de casal, mas a qualidade é surreal. A gente percebe que tem um cuidado real em cada detalhe. Só queria que tivesse mais conteúdo em vídeo.</p>
+        <div class="author">Thiago R. — Belo Horizonte, MG</div>
+      </div>
+
+      <div class="test-card">
+        <div class="stars">★ ★ ★ ★ ★</div>
+        <p>Uso as fotos deles como referência pro meu próprio ensaio de casamento. Mostrei pro meu fotógrafo e ele adorou. Rafael e Bruna têm uma química que transparece em cada imagem.</p>
+        <div class="author">Amanda S. — Curitiba, PR</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section">
+  <div class="section-label">Dúvidas</div>
+  <div class="section-title">Perguntas Frequentes</div>
+
+  <div class="faq-list">
+    <div class="faq-item">
+      <div class="faq-q">As fotos são realmente exclusivas?</div>
+      <div class="faq-a">Sim. Cada ensaio é produzido especialmente para nossos assinantes. Você não encontra esse conteúdo em nenhum outro lugar da internet.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">Posso usar as fotos como papel de parede?</div>
+      <div class="faq-a">Claro! Inclusive encorajamos. Muitos assinantes usam como wallpaper do celular, computador e até mandam imprimir em tela canvas.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">O que é o áudio exclusivo do Rafael?</div>
+      <div class="faq-a">No pacote Eternidade, Rafael grava áudios personalizados recitando poesias e mensagens de carinho. É como ter um amigo romântico no seu fone de ouvido.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">Posso cancelar a qualquer momento?</div>
+      <div class="faq-a">Sim, o cancelamento pode ser feito a qualquer momento pelo nosso suporte. Sem burocracia, sem fidelidade.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">Vocês enviam conteúdo adulto?</div>
+      <div class="faq-a">Não. Nosso conteúdo é sobre amor, carinho e conexão. É sensível, não sensual. Bom, talvez um pouquinho sensual.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="final-cta" id="contato">
+  <div class="section-label">Não fique de fora</div>
+  <h2>O Amor Não Espera</h2>
+  <p>Assine agora e receba acesso imediato à coleção completa.</p>
+  <a href="#" class="btn btn-primary" id="cta-btn">Começar Minha Assinatura</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer">
+    <div class="footer-left">R<span>&</span>B Studio</div>
+    <ul class="footer-links">
+      <li><a href="#">Instagram</a></li>
+      <li><a href="https://onlyfans.com" target="_blank">OnlyFans</a></li>
+      <li><a href="#">Telegram</a></li>
+      <li><a href="#">Contato</a></li>
+    </ul>
+    <div class="footer-right">© 2026 Todos os direitos reservados</div>
+  </div>
+</footer>
+
+<!-- WHATSAPP FLOATING BUTTON -->
+<a href="https://wa.me/+553195165999?text=Oi%21%20Vim%20pelo%20site%20e%20quero%20saber%20mais%20sobre%20os%20ensaios%20%F0%9F%94%A5" target="_blank" id="whatsapp-btn" style="
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  z-index: 9998;
+  width: 60px;
+  height: 60px;
+  background: #25d366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(37,211,102,0.4);
+  transition: all 0.3s ease;
+  text-decoration: none;
+">
+  <svg width="32" height="32" viewBox="0 0 24 24" fill="white">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
+
+<style>
+  #whatsapp-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 25px rgba(37,211,102,0.5);
+  }
+</style>
+
+<script>
+  // FAQ accordion
+  document.querySelectorAll('.faq-q').forEach(q => {
+    q.addEventListener('click', () => {
+      q.parentElement.classList.toggle('open');
+    });
+  });
+
+  // Login modal
+  const modal = document.getElementById('loginModal');
+
+  function openLogin(e) {
+    if (e) e.preventDefault();
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLogin() {
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+    document.getElementById('loginError').style.display = 'none';
+  }
+
+  // Close on backdrop click
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) closeLogin();
+  });
+
+  // Close on Escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeLogin();
+  });
+
+  // All lock buttons, subscribe buttons, and CTA open login
+  document.querySelectorAll('.lock-btn, .btn-outline[href="#contato"], .btn-primary[href="#contato"], #cta-btn').forEach(btn => {
+    btn.addEventListener('click', openLogin);
+  });
+
+  // Nav login link
+  document.getElementById('navLogin')?.addEventListener('click', openLogin);
+
+  // Form submission — fake error
+  document.getElementById('loginForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const btn = e.target.querySelector('.btn-login');
+    btn.textContent = 'ENTRANDO...';
+    btn.style.opacity = '0.6';
+
+    setTimeout(() => {
+      btn.textContent = 'ENTRAR';
+      btn.style.opacity = '1';
+      document.getElementById('loginError').style.display = 'block';
+    }, 2000);
+  });
+
+  // Google button — also fake
+  document.getElementById('googleBtn').addEventListener('click', () => {
+    const btn = document.getElementById('googleBtn');
+    btn.innerHTML = '<span style="opacity:0.6">Conectando...</span>';
+    setTimeout(() => {
+      btn.innerHTML = '<svg viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg> Continuar com Google';
+      document.getElementById('loginError').style.display = 'block';
+      document.getElementById('loginError').textContent = 'Erro ao conectar com Google. Tente novamente.';
+    }, 2500);
+  });
+</script>
+
+<!-- LOGIN MODAL -->
+<div class="modal-backdrop" id="loginModal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeLogin()">&times;</button>
+
+    <div class="modal-logo">R<span>&</span>B Studio</div>
+    <div class="modal-subtitle">Acesse seu conteúdo exclusivo</div>
+
+    <div class="modal-error" id="loginError">Email ou senha incorretos. Verifique seus dados e tente novamente.</div>
+
+    <form id="loginForm">
+      <div class="form-group">
+        <label class="form-label">E-mail</label>
+        <input type="email" class="form-input" placeholder="seu@email.com" required>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Senha</label>
+        <input type="password" class="form-input" placeholder="••••••••" required>
+      </div>
+
+      <div class="form-row">
+        <label class="form-check">
+          <input type="checkbox">
+          <span>Lembrar de mim</span>
+        </label>
+        <a href="#" class="form-forgot" onclick="event.preventDefault()">Esqueci minha senha</a>
+      </div>
+
+      <button type="submit" class="btn-login">Entrar</button>
+    </form>
+
+    <div class="modal-divider"><span>ou</span></div>
+
+    <button class="btn-google" id="googleBtn">
+      <svg viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+      Continuar com Google
+    </button>
+
+    <div class="modal-footer-text">
+      Ainda não tem conta? <a href="#" onclick="event.preventDefault()">Criar conta grátis</a>
+    </div>
+  </div>
+</div>
+</body>
+</html>
